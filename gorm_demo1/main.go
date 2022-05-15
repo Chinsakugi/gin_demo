@@ -65,4 +65,7 @@ func main() {
 	res2 := []Result{}
 	db.Model(&Student{}).Select("name, sum(age) as total").Group("name").Find(&res2)
 	fmt.Println(res2)
+
+	res3 := Student{}
+	db.Where("id = ?", 1).Find(&res3)
 }
